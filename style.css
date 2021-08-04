@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&display=swap');
+
+:root {
+  --palette-heliotrope: hsl(275, 100%, 50%);
+  --palette-heliotrope-accessible: hsl(275, 100%, 72%);
+  --palette-azure: hsl(215, 100%, 55%);
+  --palette-azure-accessible: hsl(215, 100%, 64%);
+  --palette-turquoise: hsl(175, 100%, 40%);
+  --palette-turquoise-accessible: hsl(175, 100%, 40%);
+  --palette-marshland: hsl(60, 5%, 15%);
+  --palette-heather: hsl(40, 6%, 55%); // Foreground, dimmed
+  --palette-sisal: hsl(42, 21%, 79%); // Foreground, dark
+  --palette-lace: hsl(40, 95%, 95%); // Foreground, bright
+
+  --color-background: var(--palette-marshland);
+  --color-foreground: var(--palette-sisal);
+}
+
+* {
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+  line-height: 1;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Catamaran', sans-serif;
+  overflow-x: hidden;
+}
+
+[role='banner'] {
+  --color-accent: var(--palette-sisal);
+  --color-accent-accessible: var(--palette-heather); // TODO: Add a11y colors
+
+  align-items: baseline;
+  display: flex;
+  margin: 0 auto 4.2rem;
+  max-width: 72.0rem;
+  padding-left: 11.2rem;
+  padding-top: 3rem;
+  position: relative;
+  text-transform: uppercase;
+
+  &::after {
+    background-color: var(--color-accent);
+    bottom: -2px;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 9.3rem;
+    position: absolute;
+    transition: background-color 500ms;
+    width: 100vw;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+
+    span {
+      color: var(--color-accent-accessible);
+      transition: color 500ms;
+    }
+  }
+
+  nav {
+    column-gap: 1.8rem;
+    display: flex;
+    flex-grow: 1;
+    font-size: 1.6rem;
+    justify-content: flex-end;
+
+    a {
+      color: var(--palette-heather);
+      transition: color 500ms;
+    }
+
+    a:hover {
+      color: var(--color-accent-accessible);
+    }
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  svg path {
+    fill: currentColor;
+  }
+
+  .headshot {
+    color: var(--color-accent);
+    height: 10.8rem;
+    left: 0;
+    position: absolute;
+    top: -1.6rem;
+    transition: color 500ms;
+  }
+}
+
+main {
+  margin: 0 auto;
+  max-width: 72.0rem;
+}
