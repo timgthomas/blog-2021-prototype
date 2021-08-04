@@ -1,4 +1,7 @@
-@import url('//fonts.googleapis.com/css2?family=Catamaran&display=swap');
+@font-face {
+  font-family: 'Catamaran';
+  src: url('/resources/catamaran.woff2') format('woff2');
+}
 
 :root {
   --palette-heliotrope: hsl(275, 100%, 50%);
@@ -14,6 +17,13 @@
 
   --color-background: var(--palette-marshland);
   --color-foreground: var(--palette-sisal);
+
+  --color-blog: var(--palette-heliotrope);
+  --color-blog-accessible: var(--palette-heliotrope-accessible);
+  --color-projects: var(--palette-azure);
+  --color-projects-accessible: var(--palette-azure-accessible);
+  --color-speaking: var(--palette-turquoise);
+  --color-speaking-accessible: var(--palette-turquoise-accessible);
 }
 
 * {
@@ -50,6 +60,40 @@ body {
   text-transform: uppercase;
 }
 
+  /* Section styles */
+
+  [role='banner'].focus-blog {
+    --color-accent: var(--color-blog);
+    --color-accent-accessible: var(--color-blog-accessible);
+  }
+
+  [role='banner'].focus-projects {
+    --color-accent: var(--color-projects);
+    --color-accent-accessible: var(--color-projects-accessible);
+  }
+
+  [role='banner'].focus-speaking {
+    --color-accent: var(--color-speaking);
+    --color-accent-accessible: var(--color-speaking-accessible);
+  }
+
+  [role='banner'].hover-blog {
+    --color-accent: var(--color-blog);
+    --color-accent-accessible: var(--color-blog-accessible);
+  }
+
+  [role='banner'].hover-projects {
+    --color-accent: var(--color-projects);
+    --color-accent-accessible: var(--color-projects-accessible);
+  }
+
+  [role='banner'].hover-speaking {
+    --color-accent: var(--color-speaking);
+    --color-accent-accessible: var(--color-speaking-accessible);
+  }
+
+  /* Other styles */
+
   [role='banner']::after {
     background-color: var(--color-accent);
     bottom: -2px;
@@ -72,7 +116,6 @@ body {
     }
 
   [role='banner'] nav {
-    column-gap: 1.8rem;
     display: flex;
     flex-grow: 1;
     font-size: 1.6rem;
@@ -81,11 +124,23 @@ body {
 
     [role='banner'] nav a {
       color: var(--palette-heather);
+      padding: 0 0.9rem;
       transition: color 500ms;
     }
 
-    [role='banner'] nav a:hover {
-      color: var(--color-accent-accessible);
+    [role='banner'] nav [data-section='blog']:focus,
+    [role='banner'] nav [data-section='blog']:hover {
+      color: var(--color-blog-accessible);
+    }
+
+    [role='banner'] nav [data-section='projects']:focus,
+    [role='banner'] nav [data-section='projects']:hover {
+      color: var(--color-projects-accessible);
+    }
+
+    [role='banner'] nav [data-section='speaking']:focus,
+    [role='banner'] nav [data-section='speaking']:hover {
+      color: var(--color-speaking-accessible);
     }
 
   [role='banner'] a:link {
