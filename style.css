@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Catamaran&display=swap');
+@import url('//fonts.googleapis.com/css2?family=Catamaran&display=swap');
 
 :root {
   --palette-heliotrope: hsl(275, 100%, 50%);
@@ -8,9 +8,9 @@
   --palette-turquoise: hsl(175, 100%, 40%);
   --palette-turquoise-accessible: hsl(175, 100%, 40%);
   --palette-marshland: hsl(60, 5%, 15%);
-  --palette-heather: hsl(40, 6%, 55%); // Foreground, dimmed
-  --palette-sisal: hsl(42, 21%, 79%); // Foreground, dark
-  --palette-lace: hsl(40, 95%, 95%); // Foreground, bright
+  --palette-heather: hsl(40, 6%, 55%); /* Foreground, dimmed */
+  --palette-sisal: hsl(42, 21%, 79%); /* Foreground, dark */
+  --palette-lace: hsl(40, 95%, 95%); /* Foreground, bright */
 
   --color-background: var(--palette-marshland);
   --color-foreground: var(--palette-sisal);
@@ -38,7 +38,7 @@ body {
 
 [role='banner'] {
   --color-accent: var(--palette-sisal);
-  --color-accent-accessible: var(--palette-heather); // TODO: Add a11y colors
+  --color-accent-accessible: var(--palette-heather); /* TODO: Add a11y colors */
 
   align-items: baseline;
   display: flex;
@@ -48,8 +48,9 @@ body {
   padding-top: 3rem;
   position: relative;
   text-transform: uppercase;
+}
 
-  &::after {
+  [role='banner']::after {
     background-color: var(--color-accent);
     bottom: -2px;
     content: '';
@@ -61,41 +62,41 @@ body {
     width: 100vw;
   }
 
-  h1 {
+  [role='banner'] h1 {
     font-size: 2.2rem;
+  }
 
-    span {
+    [role='banner'] h1 span {
       color: var(--color-accent-accessible);
       transition: color 500ms;
     }
-  }
 
-  nav {
+  [role='banner'] nav {
     column-gap: 1.8rem;
     display: flex;
     flex-grow: 1;
     font-size: 1.6rem;
     justify-content: flex-end;
+  }
 
-    a {
+    [role='banner'] nav a {
       color: var(--palette-heather);
       transition: color 500ms;
     }
 
-    a:hover {
+    [role='banner'] nav a:hover {
       color: var(--color-accent-accessible);
     }
-  }
 
-  a:link {
+  [role='banner'] a:link {
     text-decoration: none;
   }
 
-  svg path {
+  [role='banner'] svg path {
     fill: currentColor;
   }
 
-  .headshot {
+  [role='banner'] .headshot {
     color: var(--color-accent);
     height: 10.8rem;
     left: 0;
@@ -103,7 +104,6 @@ body {
     top: -1.6rem;
     transition: color 500ms;
   }
-}
 
 main {
   margin: 0 auto;
